@@ -3,10 +3,11 @@
 # Assumptions
 Input file is in CSV format
 
-SBT build tool is used.
 
-cd to Project Home Directory
 ## To run test cases:
+SBT build tool is used.
+cd to Project Home Directory
+
 sbt test
 
 ## To package the jar file built to path target/scala-2.11/sp500_2.11-1.0.jar
