@@ -9,7 +9,7 @@ import org.scalatest.FlatSpec
 
 /**
   * Created by Gaurav on 6/5/2017.
-  * This tests a given sample input file and checks if it results the expected output
+  * This tests a given sample input file and checks if it returns the expected output
   */
 class SP500AnalysisTest2ExpectedOutput extends FlatSpec{
 

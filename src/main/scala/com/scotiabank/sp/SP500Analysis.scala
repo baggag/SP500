@@ -17,6 +17,10 @@ object SP500Analysis {
     """Usage:spark-submit --class "com.scotiabank.sp.SP500Analysis" --master local[*] <project_path>/target/scala-2.11/sp500_2.11-1.0.jar <path_to_CSV_file> <percentage>
       |e.g. spark-submit --class "com.scotiabank.sp.SP500Analysis" --master local[*] sp500_2.11-1.0.jar  /home/centos/SP500.csv 90
     """.stripMargin
+
+  /*
+  * main() -> validates the probability arg which is passes as string and then calls the validateInput method
+   */
   def main(args:Array[String]) {
     if (args.length != 2) {
       println(usage)
@@ -38,6 +42,10 @@ object SP500Analysis {
     println(boolProcess(args(0),percent))
   }
 
+  /*
+   * validateInput() -> validates the file path and probability
+   * probability is validated here again for cases where process may be called from another function and not main
+   */
   def validateInputs(filepath:String,perc:Double):Boolean =
   {
     if(Try(perc.toDouble).isFailure)
@@ -59,6 +67,16 @@ object SP500Analysis {
     true
   }
 
+  /*
+  * Creates an expected CSV schema object, validates over the dataframe
+  * so as to ignore malformed records.
+  * Use window and lag  to create a dataframe with additional column which is equal to the value of
+  * index for the previous date, which is further used to create the column with percentage change.
+  * A DataFrame with only Percentage is created, sorted. and for probability of e.g. 90 , percReducted is calculated
+  * which is 100-percentage.
+  * Then the element index which covers the required percentage of elements is calculated.
+  * Using RDD zipwithIndex, the index corresponding to the element is evaluated and returned.
+   */
 
   def process(validatedInput:Boolean)(filepath:String,perc:Double)(implicit  spark:SparkSession):Double = {
 
