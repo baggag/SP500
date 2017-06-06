@@ -19,7 +19,7 @@ object SP500Analysis {
     """.stripMargin
 
   /*
-  * main() -> validates the probability arg which is passes as string and then calls the validateInput method
+  * Main Function: Validates the number of input parameters and probability arg which is passed as string and then calls the validateInput and process method
    */
   def main(args:Array[String]) {
     if (args.length != 2) {
@@ -43,7 +43,7 @@ object SP500Analysis {
   }
 
   /*
-   * validateInput() -> validates the file path and probability
+   * Validates the file path and probability
    * probability is validated here again for cases where process may be called from another function and not main
    */
   def validateInputs(filepath:String,perc:Double):Boolean =
