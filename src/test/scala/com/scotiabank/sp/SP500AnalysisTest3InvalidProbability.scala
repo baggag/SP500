@@ -9,6 +9,7 @@ import org.scalatest.FlatSpec
 
 /**
   * Created by Gaurav on 6/5/2017.
+  * This tests passing an invalid value for probability
   */
 class SP500AnalysisTest3InvalidProbability extends FlatSpec{
 

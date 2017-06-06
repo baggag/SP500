@@ -9,6 +9,7 @@ import org.scalatest.FlatSpec
 
 /**
   * Created by Gaurav on 6/5/2017.
+  * This tests passing an false to the process function for input validation
   */
 class SP500AnalysisTest4InvalidateArg extends FlatSpec{
 

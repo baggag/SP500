@@ -14,8 +14,8 @@ import scala.util.Try
 object SP500Analysis {
 
   val usage =
-    """Usage:spark-submit --class "com.scotiabank.sp.SP500Analysis" --master local[*] ~/SP500/target/scala-2.11/sp500_2.11-1.0.jar <path_to_log_file> <percentage>
-      |e.g. spark-submit --class "com.scotiabank.sp.SP500Analysis" --master local[*] ~/SP500/SP500/target/scala-2.11/sp500_2.11-1.0.jar  /home/centos/SP500.csv 90
+    """Usage:spark-submit --class "com.scotiabank.sp.SP500Analysis" --master local[*] <project_path>/target/scala-2.11/sp500_2.11-1.0.jar <path_to_CSV_file> <percentage>
+      |e.g. spark-submit --class "com.scotiabank.sp.SP500Analysis" --master local[*] sp500_2.11-1.0.jar  /home/centos/SP500.csv 90
     """.stripMargin
   def main(args:Array[String]) {
     if (args.length != 2) {

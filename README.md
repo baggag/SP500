@@ -1,5 +1,8 @@
 # Solution for SP500
 
+# Assumptions
+Input file is in CSV format
+
 SBT build tool is used.
 
 cd to Project Home Directory
